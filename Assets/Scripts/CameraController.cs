@@ -26,22 +26,22 @@ public class CameraController : MonoBehaviour
         // go top
         if (Input.GetKey("z") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
-            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
         }
         // go bottom
         if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
         {
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World); 
         }
         // go right
         if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
-            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
         }
         // go left
         if (Input.GetKey("q") || Input.mousePosition.x <= panBorderThickness)
         {
-            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World); 
         }
 
 
