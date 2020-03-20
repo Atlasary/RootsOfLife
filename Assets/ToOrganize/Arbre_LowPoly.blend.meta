@@ -1,50 +1,66 @@
 fileFormatVersion: 2
-guid: 82393a0f56bf516479359e2710792c84
+guid: ab39997e8ae9add4183dddcfc659d7e8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: Cylinder_001
-    100004: Cylinder_002
-    100006: Cylinder_003
-    100008: Plane
-    100010: //RootNode
-    400000: Cylinder
-    400002: Cylinder_001
-    400004: Cylinder_002
-    400006: Cylinder_003
-    400008: Plane
-    400010: //RootNode
-    2100000: Material_001
-    2100002: Material_002
-    2100004: Material_010
-    2100006: Material_011
-    2100008: Material_012
-    2100010: Material_015
-    2100012: Material_016
-    2100014: Material_008
-    2100016: Material_005
-    2100018: Material_007
-    2100020: Material_006
-    2100022: Material_003
-    2100024: Material_004
+    100000: //RootNode
+    100002: Cylinder
+    100004: Cylinder_001
+    100006: Cylinder_002
+    100008: Cylinder_003
+    100010: Icosphere
+    100012: Icosphere_001
+    100014: Icosphere_002
+    100016: Icosphere_003
+    100018: Icosphere_004
+    400000: //RootNode
+    400002: Cylinder
+    400004: Cylinder_001
+    400006: Cylinder_002
+    400008: Cylinder_003
+    400010: Icosphere
+    400012: Icosphere_001
+    400014: Icosphere_002
+    400016: Icosphere_003
+    400018: Icosphere_004
+    2100000: unnamed
+    2100002: Material_007
+    2100004: Material_006
+    2100006: Material_002
+    2100008: Material_005
+    2100010: Material_004
+    2100012: Material_003
+    2100014: Material_001
     2300000: Cylinder
     2300002: Cylinder_001
     2300004: Cylinder_002
     2300006: Cylinder_003
-    2300008: Plane
+    2300008: Icosphere
+    2300010: Icosphere_001
+    2300012: Icosphere_002
+    2300014: Icosphere_003
+    2300016: Icosphere_004
     3300000: Cylinder
     3300002: Cylinder_001
     3300004: Cylinder_002
     3300006: Cylinder_003
-    3300008: Plane
-    4300000: Plane
-    4300002: Cylinder_003
-    4300004: Cylinder_002
-    4300006: Cylinder_001
-    4300008: Cylinder
+    3300008: Icosphere
+    3300010: Icosphere_001
+    3300012: Icosphere_002
+    3300014: Icosphere_003
+    3300016: Icosphere_004
+    4300000: Icosphere_004
+    4300002: Icosphere_003
+    4300004: Icosphere_002
+    4300006: Icosphere_001
+    4300008: Cylinder_003
+    4300010: Cylinder_002
+    4300012: Cylinder_001
+    4300014: Icosphere
+    4300016: Cylinder
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
