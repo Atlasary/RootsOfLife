@@ -5,6 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class RootBluePrint {
 
-    public static int Health;
+
+    public int health = 10;
+    public float range = 20f;
+
     public GameObject prefab;
+
+    
 }

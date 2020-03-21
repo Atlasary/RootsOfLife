@@ -16,7 +16,6 @@ public class BuildManager : MonoBehaviour
 
     private RootBluePrint rootToBuild;
 
-
     internal void BuildRootFromAToB(RootBluePrint rootPrefab, Vector3 origin, Vector3 destination)
     {
         Vector3 offset = destination - origin;
@@ -24,6 +23,7 @@ public class BuildManager : MonoBehaviour
 
         // Génère une taille en fonction de clique de la souris et l'origine
         float dist = Vector3.Distance(destination, origin) / 2f;
+
         Vector3 scale = new Vector3(10f, dist, 10f);
         rootPrefab.prefab.transform.localScale = scale;
 
@@ -40,4 +40,6 @@ public class BuildManager : MonoBehaviour
         // Instancie une racine
         Instantiate(rootPrefab.prefab, position, spawnRotation);
     }
+
+
 }
