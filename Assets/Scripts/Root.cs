@@ -7,6 +7,9 @@ public class Root : MonoBehaviour
     public RootBluePrint root;
 
     private SpriteRenderer rangeSpriteRenderer;
+    private GameObject[] points;
+
+    private bool hoverEnabled = true;
 
     BuildManager buildManager;
 
@@ -17,11 +20,31 @@ public class Root : MonoBehaviour
         // prevent the parrent from scaling the children
         transform.GetChild(0).parent = null;
 
-        rangeSpriteRenderer.transform.localScale = new Vector3(root.range * 2f, root.range * 2f, -0.01f);
+        rangeSpriteRenderer.transform.localScale = new Vector3(root.range * 2f, root.range * 2f, -0.05f);
 
         HideRange();
 
+        //points = new GameObject[3];
+        //GameObject go1 = new GameObject();
+        //go1.transform.position = transform.position * (-.5f);
+        //points[0] = go1;
+
+        //GameObject go2 = new GameObject();
+        //go2.transform.position = transform.position * (-.5f);
+        //points[1] = go2;
+
+        //GameObject go3 = new GameObject();
+        //go3.transform.position = transform.position * (-.5f);
+        //points[2] = go3;
+
+        //Debug.Log("Root created");
+        //for (int i = 0; i < points.Length; i++)
+        //{
+        //    //Debug.Log(points[i].transform.position);
+        //}
+
         buildManager = BuildManager.instance;
+
     }
 
     private void HideRange()
@@ -37,16 +60,21 @@ public class Root : MonoBehaviour
     private void OnMouseDown()
     {
         ShowRange();
+        hoverEnabled = false;
+        buildManager.root.prefab = gameObject;
+        buildManager.root.isSelected = true;
     }
 
     private void OnMouseEnter()
     {
-        ShowRange();
+        if(hoverEnabled)
+            ShowRange();
     }
 
     private void OnMouseExit()
     {
-        HideRange();
+        if (hoverEnabled)
+            HideRange();
     }
 
     private void OnDrawGizmosSelected()
