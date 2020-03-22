@@ -7,6 +7,8 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
+    public GameObject expandableGo;
+
     private void Awake()
     {
         if (instance != null)
@@ -14,12 +16,9 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    private RootBluePrint rootToBuild;
-    public YggdrasilBlueprint yggdrasil;
-    public RootBluePrint root;
-
-    internal void BuildRootFromAToB(RootBluePrint rootPrefab, Vector3 origin, Vector3 destination)
+    internal void BuildRootTo(RootBluePrint rootPrefab, Vector3 destination)
     {
+        Vector3 origin = expandableGo.transform.position;
         float x = destination.x - origin.x;
         float z = destination.z - origin.z;
 
@@ -51,7 +50,7 @@ public class BuildManager : MonoBehaviour
 
         // Instancie une racine
         GameObject root = Instantiate(rootPrefab.prefab, position, spawnRotation);
-        
+
     }
 
 }

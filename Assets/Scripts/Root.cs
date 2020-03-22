@@ -61,8 +61,7 @@ public class Root : MonoBehaviour
     {
         ShowRange();
         hoverEnabled = false;
-        buildManager.root.prefab = gameObject;
-        buildManager.root.isSelected = true;
+        buildManager.expandableGo = gameObject;
     }
 
     private void OnMouseEnter()

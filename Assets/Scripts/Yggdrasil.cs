@@ -25,7 +25,6 @@ public class Yggdrasil : MonoBehaviour
         HideRange();
 
         buildManager = BuildManager.instance;
-        buildManager.yggdrasil.go = gameObject;
     }
 
     private void Update()
@@ -89,7 +88,9 @@ public class Yggdrasil : MonoBehaviour
     private void OnMouseDown()
     {
         ShowRange();
-        buildManager.yggdrasil.isSelected = true;
+
+        buildManager.expandableGo = gameObject;
+
         hoverEnabled = false;
     }
 
