@@ -30,7 +30,6 @@ public class Ground : MonoBehaviour
             //Vector3 origin = transform.position;
             Vector3 destination = hit.point;
 
-
             buildManager.BuildRootFromAToB(rootPrefab, origin, destination);
             buildManager.yggdrasil.isSelected = false;
         }

@@ -22,15 +22,6 @@ public class BuildManager : MonoBehaviour
     {
         float x = destination.x - origin.x;
         float z = destination.z - origin.z;
-        //Vector3 offset = destination - origin;
-        if (destination.x < 0 && origin.x < destination.x)
-        {
-           // x = - (Mathf.Abs(destination.x) + Mathf.Abs(origin.x)) / 2;
-        }
-        if (destination.z < 0 && origin.z < destination.z)
-        {
-            //z = -(Mathf.Abs(destination.z) + Mathf.Abs(origin.z)) / 2;
-        }
 
         Vector3 offset = new Vector3(x, 0, z);
         Debug.Log("destination : " + destination);
@@ -49,18 +40,18 @@ public class BuildManager : MonoBehaviour
         Vector3 scale = new Vector3(10f, dist, 10f);
         rootPrefab.prefab.transform.localScale = scale;
 
-
         // Crée un angle à partir d'un offset
         float angle = Vector3.Angle(offset, transform.forward);
 
-        // Corrige l'angle si jamais on passe dans les X négatifs
-        if (position.x < 0) angle = 180 - angle;
+        // Corrige l'angle si jamais destination.x < origin.x car Vector3.Angle(from, to) ne retourne qu'un angle sur 180°, il faut donc l'inverser quand on est dans les négatifs
+        if (destination.x < origin.x) angle = -angle;
 
         // Fait un angle de 90 degés pour que a racine soit bien orientée
         Quaternion spawnRotation = Quaternion.Euler(90, angle, 0);
 
         // Instancie une racine
-        Instantiate(rootPrefab.prefab, position, spawnRotation);
+        GameObject root = Instantiate(rootPrefab.prefab, position, spawnRotation);
+        
     }
 
 }
