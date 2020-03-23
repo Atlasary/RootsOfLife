@@ -324,15 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99bda1ac78454341a1066b6e6326834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yggdrasil:
-    isSelected: 0
-    range: 0
-    go: {fileID: 0}
-  root:
-    health: 10
-    range: 20
-    isSelected: 0
-    prefab: {fileID: 0}
+  expandableGo: {fileID: 0}
 --- !u!1001 &783901111
 PrefabInstance:
   m_ObjectHideFlags: 0

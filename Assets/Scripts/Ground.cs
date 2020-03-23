@@ -30,6 +30,8 @@ public class Ground : MonoBehaviour
         Vector3 destination = hit.point;
 
         buildManager.BuildRootTo(rootPrefab,destination);
+
+        buildManager.expandableGo = null;
     }
 
 }
