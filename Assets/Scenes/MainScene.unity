@@ -637,10 +637,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootPrefab:
-    health: 10
-    range: 30
+    gameObject: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2,
+      type: 3}
     isSelected: 0
-    prefab: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2, type: 3}
+    range: 90
+    health: 50
 --- !u!1 &2118749835
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yggdrasil:
+    gameObject: {fileID: 2118749835}
     isSelected: 0
     range: 90
-    go: {fileID: 2118749835}

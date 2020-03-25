@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Spot : MonoBehaviour
 {
+    private SpotBluerint spot;
 
     BuildManager buildManager;
 
     private void Start()
     {
         buildManager = BuildManager.instance;
+        spot = new SpotBluerint();
+        spot.gameObject = gameObject;
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("clicked");
-        buildManager.expandableGo = gameObject;
+        buildManager.extendable = spot;
     }
+
 }

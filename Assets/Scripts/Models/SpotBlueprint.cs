@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class YggdrasilBlueprint : IExtendable {
+public class SpotBluerint : IExtendable
+{
 
     public GameObject gameObject;
     public bool isSelected;
-    public float range;
 
     public GameObject GetGameObject()
     {
@@ -16,7 +16,7 @@ public class YggdrasilBlueprint : IExtendable {
 
     public float getRange()
     {
-        return range;
+        return 0;
     }
 
     bool IExtendable.isSelected()

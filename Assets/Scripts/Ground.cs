@@ -17,7 +17,7 @@ public class Ground : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (buildManager.expandableGo == null)
+        if (buildManager.extendable == null)
             return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -31,7 +31,7 @@ public class Ground : MonoBehaviour
 
         buildManager.BuildRootTo(rootPrefab,destination);
 
-        buildManager.expandableGo = null;
+        buildManager.extendable = null;
     }
 
 }

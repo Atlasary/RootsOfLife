@@ -23,11 +23,12 @@ public class Root : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // prevent the parrent from scaling the children
-        transform.GetChild(0).parent = null;
+        //transform.GetChild(0).parent = null;
 
         root.range = 2 * transform.localScale.y;
+        root.gameObject = gameObject;
 
-        rangeSpriteRenderer.transform.localScale = new Vector3(root.range * 2f, root.range * 2f, -0.05f);
+        rangeSpriteRenderer.transform.localScale = new Vector3(transform.localScale.y / 3.5f, 3, -0.05f);
 
         HideRange();
 
@@ -85,6 +86,7 @@ public class Root : MonoBehaviour
         hoverEnabled = false;
         // on construit a partir des spots de la racine, pas du centre de la racine
         //buildManager.expandableGo = gameObject;
+        //buildManager.extendable = root;
     }
 
     private void OnMouseEnter()

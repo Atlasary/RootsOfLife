@@ -24,56 +24,10 @@ public class Yggdrasil : MonoBehaviour
 
         HideRange();
 
+        yggdrasil.gameObject = gameObject;
+
         buildManager = BuildManager.instance;
     }
-
-    private void Update()
-    {
-        //if (isInRange) Debug.Log("worked");
-        //if (isTouched())
-        //{
-        //    Debug.Log("Can build");
-        //}
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-        //    {
-        //        if (hit.collider == collider)
-        //        {
-        //            //Do your thing.
-        //        }
-        //    }
-        //}
-    }
-
-    
-    //private bool isTouched()
-    //{
-    //    bool result = false;
-    //    if(Input.touchCount == 1)
-    //    {
-    //        if(Input.touches[0].phase == TouchPhase.Ended)
-    //        {
-    //            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-    //            Vector2 touchPos = new Vector2(wp.x, wp.y);
-    //            if(collider == Physics2D.OverlapPoint(touchPos))
-    //            {
-    //                result = true;
-    //            }
-    //        }
-    //    }
-    //    if (Input.GetMouseButtonUp(0))
-    //    {
-    //        Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //        Vector2 mousePos = new Vector2(wp.x, wp.y);
-    //        if (Collider2D == Physics2D.OverlapPoint(mousePos))
-    //        {
-    //            result = true;
-    //        }
-    //    }
-    //    return result;
-    //}
 
     private void HideRange()
     {
@@ -89,15 +43,11 @@ public class Yggdrasil : MonoBehaviour
     {
         ShowRange();
 
-        buildManager.expandableGo = gameObject;
+        //buildManager.expandableGo = gameObject;
 
+        buildManager.extendable = yggdrasil;
+        //Debug.Log(yggdrasil.gameObject);
         hoverEnabled = false;
-    }
-
-    private void OnMouseEnter()
-    {
-        if (hoverEnabled)
-            ShowRange();
     }
 
     private void OnMouseExit()
@@ -106,6 +56,11 @@ public class Yggdrasil : MonoBehaviour
             HideRange();
     }
 
+    private void OnMouseOver()
+    {
+        if (hoverEnabled)
+            ShowRange();
+    }
 
     private void OnDrawGizmosSelected()
     {

@@ -7,7 +7,7 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-    public GameObject expandableGo;
+    public IExtendable extendable;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class BuildManager : MonoBehaviour
 
     internal void BuildRootTo(RootBluePrint rootPrefab, Vector3 destination)
     {
-        Vector3 origin = expandableGo.transform.position;
+        Vector3 origin = extendable.GetGameObject().transform.position;
         float x = destination.x - origin.x;
         float z = destination.z - origin.z;
 
@@ -32,7 +32,7 @@ public class BuildManager : MonoBehaviour
         float dist = Vector3.Distance(destination, origin) / 2f;
 
         Vector3 scale = new Vector3(10f, dist, 10f);
-        rootPrefab.prefab.transform.localScale = scale;
+        rootPrefab.gameObject.transform.localScale = scale;
 
         // Crée un angle à partir d'un offset
         float angle = Vector3.Angle(offset, transform.forward);
@@ -44,7 +44,7 @@ public class BuildManager : MonoBehaviour
         Quaternion spawnRotation = Quaternion.Euler(90, angle, 0);
 
         // Instancie une racine
-        GameObject root = Instantiate(rootPrefab.prefab, position, spawnRotation);
+        GameObject root = Instantiate(rootPrefab.gameObject, position, spawnRotation);
 
     }
 
