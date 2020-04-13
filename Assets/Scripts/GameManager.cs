@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
+        Debug.Log("Game manager start");
         gameIsOver = false;
     }
 
