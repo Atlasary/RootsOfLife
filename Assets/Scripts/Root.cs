@@ -44,6 +44,7 @@ public class Root : MonoBehaviour
             go.name = "spot " + 1;
             go.AddComponent<Spot>();
             go.transform.SetParent(transform, false);
+            //go.SetActive(false);
             spots[0] = go;
         }
         else
@@ -57,6 +58,7 @@ public class Root : MonoBehaviour
                 go.name = "spot " + i;
                 go.AddComponent<Spot>();
                 go.transform.SetParent(transform, false);
+                //go.SetActive(false);
                 spots[(int)i - 1] = go;
             }
         }
@@ -65,9 +67,18 @@ public class Root : MonoBehaviour
 
     }
 
-    private void Update()
+    public GameObject[] getSpots()
     {
-        
+        return spots;
+    }
+    public void HideSpots()
+    {
+        //foreach (GameObject spot in spots) spot.SetActive(false);
+    }
+
+    private void DisplaySpots()
+    {
+        //foreach (GameObject spot in spots) spot.SetActive(true);
     }
 
     private void HideRange()
@@ -83,6 +94,7 @@ public class Root : MonoBehaviour
     private void OnMouseDown()
     {
         ShowRange();
+        DisplaySpots();
         hoverEnabled = false;
         // on construit a partir des spots de la racine, pas du centre de la racine
         //buildManager.expandableGo = gameObject;
@@ -91,14 +103,29 @@ public class Root : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(hoverEnabled)
+        if (hoverEnabled)
+        {
             ShowRange();
+            
+        } else
+        {
+            DisplaySpots();
+        }
+            
     }
 
     private void OnMouseExit()
     {
         if (hoverEnabled)
+        {
             HideRange();
+            //HideSpots();
+        }
+        else
+        {
+            HideSpots();
+        }
+
     }
 
     private void OnDrawGizmosSelected()

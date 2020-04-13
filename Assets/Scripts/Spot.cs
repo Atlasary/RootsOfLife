@@ -5,13 +5,17 @@ using UnityEngine;
 public class Spot : MonoBehaviour
 {
     private SpotBluerint spot;
+    public Root parent;
 
     BuildManager buildManager;
 
     private void Start()
     {
+        parent = transform.parent.GetComponent<Root>();
+
         buildManager = BuildManager.instance;
         spot = new SpotBluerint();
+        spot.parent = parent;
         spot.gameObject = gameObject;
     }
 
