@@ -7,6 +7,9 @@ public class SpotBluerint : IExtendable
 {
 
     public GameObject gameObject;
+
+    public Root parent;
+
     public bool isSelected;
 
     public GameObject GetGameObject()
@@ -22,5 +25,10 @@ public class SpotBluerint : IExtendable
     bool IExtendable.isSelected()
     {
         return isSelected;
+    }
+
+    public Root getRoot()
+    {
+        return parent;
     }
 }

@@ -18,6 +18,13 @@ public class BuildManager : MonoBehaviour
 
     internal void BuildRootTo(RootBluePrint rootPrefab, Vector3 destination)
     {
+        if(extendable is SpotBluerint)
+        {
+            Debug.Log("HideSpot");
+            //GameObject[] spots = ((SpotBluerint)extendable).parent.getSpots();
+            //foreach (GameObject spot in spots) spot.SetActive(false);
+        }
+
         Vector3 origin = extendable.GetGameObject().transform.position;
         float x = destination.x - origin.x;
         float z = destination.z - origin.z;
