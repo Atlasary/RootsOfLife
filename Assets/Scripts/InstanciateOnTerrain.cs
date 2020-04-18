@@ -19,19 +19,8 @@ public class InstanciateOnTerrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            activate = true;
-            current = Instantiate(tourelles[currentIndex], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
-        }
         if (activate)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                Destroy(current);
-                currentIndex = (currentIndex + 1) % tourelles.Length;
-                current = Instantiate(tourelles[currentIndex], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
-            }
             RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
@@ -46,6 +35,12 @@ public class InstanciateOnTerrain : MonoBehaviour
                 activate = false;
             }
         }
+    }
 
+    public void TurretSwitch(int index)
+    {
+        Debug.Log("help");
+        activate = true;
+        current = Instantiate(tourelles[index], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
     }
 }

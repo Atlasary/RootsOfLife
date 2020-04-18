@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,6 +353,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68390927}
   m_CullTransparentMesh: 0
+--- !u!1 &83906205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1664245328958036, guid: c8457b3e64a21da4186ce3171ada032f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1806842460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &83906208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83906205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &84668873
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +453,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 84668876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 516499314}
+        m_MethodName: TurretSwitch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &84668876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,7 +1071,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 356873188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 516499314}
+        m_MethodName: TurretSwitch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &356873188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,7 +1487,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 442483344}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 516499314}
+        m_MethodName: TurretSwitch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &442483344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516499312}
   - component: {fileID: 516499311}
+  - component: {fileID: 516499314}
   - component: {fileID: 516499310}
   - component: {fileID: 516499313}
   m_Layer: 0
@@ -1647,6 +1704,25 @@ MonoBehaviour:
   scrollSpeed: 5
   minY: 10
   maxY: 350
+--- !u!114 &516499314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516499309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47e2ff42520a4d47b3cc513885cea0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tourelles:
+  - {fileID: 8090434777570995775, guid: e8910d85921a39b4796ff72320bc6c0a, type: 3}
+  - {fileID: 7639027260465482680, guid: 7ccdb7e6f66c62b4ab4898d4d5692a5f, type: 3}
+  - {fileID: 7451470849455368995, guid: ce6ef0d7e207cdb469e01976a489c80a, type: 3}
+  - {fileID: 5745756518086756755, guid: dda922f6049e2594d9b8f8e62ce210c7, type: 3}
+  - {fileID: 5767900325044286752, guid: c1fd38491753d5d40a49faefa33d0520, type: 3}
+  terrainCollider: {fileID: 1519065981}
 --- !u!1 &538648902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,7 +2068,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735640719}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &735640721
 Camera:
   m_ObjectHideFlags: 0
@@ -2263,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1863041753950054191, guid: 1fd892226027a98479162eb67dc2f7b2,
         type: 3}
@@ -2687,7 +2763,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 848443939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 516499314}
+        m_MethodName: TurretSwitch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &848443939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,7 +4344,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1516523926
@@ -4628,7 +4715,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1594089439}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 516499314}
+        m_MethodName: TurretSwitch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1594089439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4866,6 +4964,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneFader
       objectReference: {fileID: 0}
+    - target: {fileID: 1664245328958036, guid: c8457b3e64a21da4186ce3171ada032f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987419242448140, guid: c8457b3e64a21da4186ce3171ada032f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4819751714180284, guid: c8457b3e64a21da4186ce3171ada032f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 642.2356
@@ -4909,6 +5015,11 @@ PrefabInstance:
     - target: {fileID: 4819751714180284, guid: c8457b3e64a21da4186ce3171ada032f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223521090443630272, guid: c8457b3e64a21da4186ce3171ada032f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 224152086292993696, guid: c8457b3e64a21da4186ce3171ada032f,
         type: 3}
