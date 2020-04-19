@@ -39,8 +39,9 @@ public class InstanciateOnTerrain : MonoBehaviour
 
     public void TurretSwitch(int index)
     {
-        Debug.Log("help");
         activate = true;
         current = Instantiate(tourelles[index], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
+
+        Debug.Log("is null ? " + current.name);
     }
 }
