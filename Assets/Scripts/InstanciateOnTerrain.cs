@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InstanciateOnTerrain : MonoBehaviour
 {
-    public GameObject[] tourelles;
+    public TurretBlueprint[] tourelles;
     private GameObject current;
     public Collider terrainCollider;
     private bool activate = false;
@@ -40,8 +40,19 @@ public class InstanciateOnTerrain : MonoBehaviour
     public void TurretSwitch(int index)
     {
         activate = true;
-        current = Instantiate(tourelles[index], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
+        TurretBlueprint tbp = tourelles[index];
+        if (PlayerStats.money < tbp.price)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the turret costs " + tbp.price + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the turret costs " + tbp.price + "$");
+            PlayerStats.money -= tbp.price;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
 
-        Debug.Log("is null ? " + current.name);
+        current = Instantiate(tbp.gameObject, Vector3.zero, Quaternion.Euler(Vector3.left * 90));
     }
 }
