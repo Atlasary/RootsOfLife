@@ -91,4 +91,5 @@ public class TurretHabits : MonoBehaviour
         print(GetComponentInChildren<TurretDetector>().gameObject.name);
         GetComponentInChildren<TurretDetector>().gameObject.transform.localScale = new Vector3(range * 80f / this.transform.localScale.x, range * 80f / this.transform.localScale.y,1);
     }
+
 }

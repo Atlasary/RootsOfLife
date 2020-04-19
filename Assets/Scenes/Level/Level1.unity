@@ -1947,7 +1947,7 @@ MonoBehaviour:
       type: 3}
     range: 50
     price: 25
-    health: 25
+    health: 5
   - gameObject: {fileID: 5767900325044286752, guid: c1fd38491753d5d40a49faefa33d0520,
       type: 3}
     range: 50

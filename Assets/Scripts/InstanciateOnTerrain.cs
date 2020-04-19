@@ -54,5 +54,7 @@ public class InstanciateOnTerrain : MonoBehaviour
         }
 
         current = Instantiate(tbp.gameObject, Vector3.zero, Quaternion.Euler(Vector3.left * 90));
+
+        Debug.Log("is null ? " + current.name);
     }
 }
