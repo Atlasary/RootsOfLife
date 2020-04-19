@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed422e8a16ec3f4d9fac46afb17e6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 1
+  startMoney: 71
   startLives: 1
 --- !u!114 &590275956
 MonoBehaviour:
@@ -2261,6 +2261,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114854576458045048, guid: 1fd892226027a98479162eb67dc2f7b2,
+        type: 3}
+      propertyPath: root.price
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 606430705167450232, guid: 1fd892226027a98479162eb67dc2f7b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4344,7 +4349,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1516523926
@@ -4469,6 +4474,7 @@ MonoBehaviour:
       type: 3}
     isSelected: 0
     range: 90
+    price: 70
     health: 50
 --- !u!1 &1542292699
 GameObject:
