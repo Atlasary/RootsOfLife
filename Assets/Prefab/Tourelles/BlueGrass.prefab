@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 7483507360429857493}
   - component: {fileID: 7483507360428726293}
   - component: {fileID: 1701302770983201007}
+  - component: {fileID: 1148919791825939083}
   m_Layer: 0
   m_Name: BlueGrass
   m_TagString: Untagged
@@ -282,5 +283,20 @@ MonoBehaviour:
   startlife: 10
   damage: 1
   loadTime: 1
-  range: 0
+  range: 1
+  projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
+    type: 3}
   lifebar: {fileID: 1701302771658163379}
+--- !u!65 &1148919791825939083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483507360426788565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 62.215416, y: 47.457996, z: 3.6433403}
+  m_Center: {x: 0.40032578, y: -0.99297833, z: 0.7628148}

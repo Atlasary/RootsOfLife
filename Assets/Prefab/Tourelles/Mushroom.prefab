@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 7954986575233542785}
   - component: {fileID: 7954986575234508865}
   - component: {fileID: 2438924842708926319}
+  - component: {fileID: 4853338763387701449}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -282,5 +283,20 @@ MonoBehaviour:
   startlife: 10
   damage: 1
   loadTime: 1
-  range: 0
+  range: 1
+  projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
+    type: 3}
   lifebar: {fileID: 2438924842510364050}
+--- !u!65 &4853338763387701449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954986575236445825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.639262, y: 8.032398, z: 4.684554}
+  m_Center: {x: 0.0000000055843463, y: -9.747272e-11, z: 1.3422768}
