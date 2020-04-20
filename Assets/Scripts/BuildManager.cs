@@ -18,6 +18,18 @@ public class BuildManager : MonoBehaviour
 
     internal void BuildRootTo(RootBluePrint rootPrefab, Vector3 destination)
     {
+        if (PlayerStats.money < rootPrefab.price)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the root costs " + rootPrefab.price + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the root costs " + rootPrefab.price + "$");
+            PlayerStats.money -= rootPrefab.price;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
+
         if(extendable is SpotBluerint)
         {
             Debug.Log("HideSpot");

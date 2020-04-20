@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
@@ -46,11 +47,18 @@ public class Enemy : MonoBehaviour {
         PlayerStats.money += worth;
 
         GameObject deathParticles = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        
         Destroy(deathParticles, 2f);
 
         WaveSpawner.EnemiesAlive--;
 
         Destroy(gameObject);
+
+        giveMoney();
     }
 
+    private void giveMoney()
+    {
+        PlayerStats.money += worth;
+    }
 }

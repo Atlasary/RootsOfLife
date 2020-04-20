@@ -25,8 +25,7 @@ public class Root : MonoBehaviour
         // prevent the parrent from scaling the children
         //transform.GetChild(0).parent = null;
 
-        root.range = 2 * transform.localScale.y;
-        root.gameObject = gameObject;
+        createInstanceRBP();
 
         rangeSpriteRenderer.transform.localScale = new Vector3(transform.localScale.y / 3.5f, 3, -0.05f);
 
@@ -65,6 +64,13 @@ public class Root : MonoBehaviour
         
         buildManager = BuildManager.instance;
 
+    }
+
+    private void createInstanceRBP()
+    {
+        root.range = 2 * transform.localScale.y;
+        root.gameObject = gameObject;
+        root.price = 70;
     }
 
     public GameObject[] getSpots()

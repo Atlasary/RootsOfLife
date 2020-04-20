@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InstanciateOnTerrain : MonoBehaviour
 {
-    public GameObject[] tourelles;
+    public TurretBlueprint[] tourelles;
     private GameObject current;
     public Collider terrainCollider;
     private bool activate = false;
@@ -19,19 +19,8 @@ public class InstanciateOnTerrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            activate = true;
-            current = Instantiate(tourelles[currentIndex], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
-        }
         if (activate)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                Destroy(current);
-                currentIndex = (currentIndex + 1) % tourelles.Length;
-                current = Instantiate(tourelles[currentIndex], Vector3.zero, Quaternion.Euler(Vector3.left * 90));
-            }
             RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
@@ -46,6 +35,26 @@ public class InstanciateOnTerrain : MonoBehaviour
                 activate = false;
             }
         }
+    }
 
+    public void TurretSwitch(int index)
+    {
+        activate = true;
+        TurretBlueprint tbp = tourelles[index];
+        if (PlayerStats.money < tbp.price)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the turret costs " + tbp.price + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the turret costs " + tbp.price + "$");
+            PlayerStats.money -= tbp.price;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
+
+        current = Instantiate(tbp.gameObject, Vector3.zero, Quaternion.Euler(Vector3.left * 90));
+
+        Debug.Log("is null ? " + current.name);
     }
 }
