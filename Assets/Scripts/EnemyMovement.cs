@@ -18,6 +18,10 @@ public class EnemyMovement : MonoBehaviour {
 
     private void Update()
     {
+        if(target == null)
+        {
+            target = ChoseDirection();
+        }
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
 

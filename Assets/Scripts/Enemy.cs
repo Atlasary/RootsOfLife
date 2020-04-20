@@ -61,4 +61,12 @@ public class Enemy : MonoBehaviour {
     {
         PlayerStats.money += worth;
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "Turret")
+        {
+            collision.gameObject.GetComponent<TurretHabits>().TakeDamage(0.01f);
+        }
+    }
 }

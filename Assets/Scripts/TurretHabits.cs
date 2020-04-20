@@ -20,6 +20,7 @@ public class TurretHabits : MonoBehaviour
     void Start()
     {
         life = startlife;
+        initScale = lifebar.transform.localScale.x;
         lifebar.gameObject.SetActive(false);
         enemyList = new List<Enemy>();
         isReady = true;
@@ -35,7 +36,6 @@ public class TurretHabits : MonoBehaviour
             {
                 enemyList.Remove(enemyList[0]);
             }
-            transform.LookAt(enemyList[0].transform.position);
             if (isReady)
             {
                 isReady = false;
@@ -46,8 +46,11 @@ public class TurretHabits : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        print(life);
+        print(startlife);
         if(life == startlife)
         {
+            print("ok");
             lifebar.gameObject.SetActive(true);
         }
         life -= damage;

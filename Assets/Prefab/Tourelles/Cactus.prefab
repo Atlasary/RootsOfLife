@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6307425837682432899}
   m_Layer: 0
   m_Name: Cactus
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087414864706295617}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.8188133, y: 3.3579528, z: 6.1329894}
@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292263871282760211}
   m_LocalRotation: {x: -0, y: -0, z: 0.017452449, w: 0.9998477}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4399999}
+  m_LocalPosition: {x: 0, y: -0, z: 0.1}
   m_LocalScale: {x: 40, y: 40.000034, z: 0.666667}
   m_Children: []
   m_Father: {fileID: 1087414864706259809}

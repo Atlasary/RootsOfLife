@@ -25,7 +25,7 @@ public class InstanciateOnTerrain : MonoBehaviour
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider == terrainCollider)
+                if (hit.collider == terrainCollider || (hit.collider.gameObject.name == "Range" && hit.collider.gameObject != current.transform.GetChild(1).gameObject))
                 {
                     current.transform.position = hit.point;
                 }
