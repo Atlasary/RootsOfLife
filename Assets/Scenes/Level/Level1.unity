@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed422e8a16ec3f4d9fac46afb17e6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 71
+  startMoney: 12345671
   startLives: 1
 --- !u!114 &590275956
 MonoBehaviour:
@@ -1930,29 +1930,19 @@ MonoBehaviour:
   tourelles:
   - gameObject: {fileID: 8090434777570995775, guid: e8910d85921a39b4796ff72320bc6c0a,
       type: 3}
-    range: 50
     price: 25
-    health: 25
   - gameObject: {fileID: 7639027260465482680, guid: 7ccdb7e6f66c62b4ab4898d4d5692a5f,
       type: 3}
-    range: 50
     price: 25
-    health: 25
   - gameObject: {fileID: 7451470849455368995, guid: ce6ef0d7e207cdb469e01976a489c80a,
       type: 3}
-    range: 50
     price: 25
-    health: 25
   - gameObject: {fileID: 5745756518086756755, guid: dda922f6049e2594d9b8f8e62ce210c7,
       type: 3}
-    range: 50
     price: 25
-    health: 5
   - gameObject: {fileID: 5767900325044286752, guid: c1fd38491753d5d40a49faefa33d0520,
       type: 3}
-    range: 50
     price: 25
-    health: 25
   terrainCollider: {fileID: 1519065981}
 --- !u!1 &670710605
 GameObject:
@@ -5749,6 +5739,7 @@ MonoBehaviour:
     gameObject: {fileID: 2118749835}
     isSelected: 0
     range: 90
+  terrainCollider: {fileID: 1519065981}
 --- !u!1 &2118939984
 GameObject:
   m_ObjectHideFlags: 0

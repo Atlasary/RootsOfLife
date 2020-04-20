@@ -19,7 +19,7 @@ public class SpotBluerint : IExtendable
 
     public float getRange()
     {
-        return 0;
+        return 60;
     }
 
     bool IExtendable.isSelected()
