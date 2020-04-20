@@ -37,7 +37,15 @@ public class BuildManager : MonoBehaviour
             //foreach (GameObject spot in spots) spot.SetActive(false);
         }
 
+
         Vector3 origin = extendable.GetGameObject().transform.position;
+
+        if (!isWithinRange(origin, destination))
+        {
+            Debug.Log("You can build too far !");
+            return;
+        }
+        
         float x = destination.x - origin.x;
         float z = destination.z - origin.z;
 
@@ -65,6 +73,13 @@ public class BuildManager : MonoBehaviour
         // Instancie une racine
         GameObject root = Instantiate(rootPrefab.gameObject, position, spawnRotation);
 
+    }
+
+    private bool isWithinRange(Vector3 origin, Vector3 destination)
+    {
+        float dist = Vector3.Distance(origin, destination);
+        if (dist > extendable.getRange()) return false;
+        return true;
     }
 
 }

@@ -592,11 +592,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tourelles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - gameObject: {fileID: 0}
+    price: 0
+  - gameObject: {fileID: 0}
+    price: 0
+  - gameObject: {fileID: 0}
+    price: 0
+  - gameObject: {fileID: 0}
+    price: 0
+  - gameObject: {fileID: 0}
+    price: 0
   terrainCollider: {fileID: 1519065981}
 --- !u!114 &590275954
 MonoBehaviour:
@@ -1375,7 +1380,7 @@ PrefabInstance:
     - target: {fileID: 2438924842708926319, guid: 9f5818f80a5a1864fb03b7dd5442f6cb,
         type: 3}
       propertyPath: damage
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2438924842708926319, guid: 9f5818f80a5a1864fb03b7dd5442f6cb,
         type: 3}

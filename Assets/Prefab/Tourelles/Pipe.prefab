@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 199977369761298030}
   - component: {fileID: 199977369760199854}
   - component: {fileID: 5966641214853816137}
+  - component: {fileID: 3560203135853757533}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -97,8 +98,23 @@ MonoBehaviour:
   startlife: 10
   damage: 1
   loadTime: 1
-  range: 0
+  range: 1
+  projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
+    type: 3}
   lifebar: {fileID: 5966641214908127119}
+--- !u!65 &3560203135853757533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199977369758263918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7953057, y: 5.194539, z: 8.298342}
+  m_Center: {x: 0.4546319, y: -0.04011549, z: 3.60691}
 --- !u!1 &5966641214908127119
 GameObject:
   m_ObjectHideFlags: 0

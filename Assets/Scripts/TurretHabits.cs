@@ -35,6 +35,7 @@ public class TurretHabits : MonoBehaviour
             {
                 enemyList.Remove(enemyList[0]);
             }
+            transform.LookAt(enemyList[0].transform.position);
             if (isReady)
             {
                 isReady = false;

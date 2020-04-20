@@ -6,10 +6,15 @@ using UnityEngine;
 public class Yggdrasil : MonoBehaviour
 {
     public YggdrasilBlueprint yggdrasil;
+    public Collider terrainCollider;
 
     private SpriteRenderer rangeSpriteRenderer;
 
     private bool hoverEnabled = true;
+    private bool activate = false;
+
+    private RaycastHit hit;
+    private Ray ray;
 
     BuildManager buildManager;
 
@@ -26,7 +31,30 @@ public class Yggdrasil : MonoBehaviour
 
         yggdrasil.gameObject = gameObject;
 
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         buildManager = BuildManager.instance;
+    }
+
+    void Update()
+    {
+        
+        //while (activate)
+        //{
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        if (hit.collider == terrainCollider)
+        //        {
+        //            Debug.Log("I hit the floor !");
+        //        }
+        //    }
+        //    /*
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        activate = false;
+        //    }
+        //    */
+        //}
     }
 
     private void HideRange()
@@ -48,6 +76,7 @@ public class Yggdrasil : MonoBehaviour
         buildManager.extendable = yggdrasil;
         //Debug.Log(yggdrasil.gameObject);
         hoverEnabled = false;
+        activate = true;
     }
 
     private void OnMouseExit()
@@ -64,8 +93,8 @@ public class Yggdrasil : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Vector3 position = new Vector3(transform.position.x, transform.position.y, .5f);
-        Gizmos.DrawWireSphere(position, yggdrasil.range);
+        //Gizmos.color = Color.red;
+        //Vector3 position = new Vector3(transform.position.x, transform.position.y, .5f);
+        //Gizmos.DrawWireSphere(position, yggdrasil.range);
     }
 }

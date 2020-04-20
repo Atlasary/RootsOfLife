@@ -6,14 +6,14 @@ using System.Collections.Generic;
 public class EnemyMovement : MonoBehaviour {
 
     private Transform target;
-    private int waypointIndex = 0;
+    //private int waypointIndex = 0;
 
     private Enemy enemy;
 
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        target = Waypoints.points[0];
+        target = ChoseDirection();
     }
 
     private void Update()
@@ -31,6 +31,7 @@ public class EnemyMovement : MonoBehaviour {
 
     private void GetNextWaypoint()
     {
+        /*
         if (waypointIndex >= Waypoints.points.Length - 1)
         {
             EndPath();
@@ -39,6 +40,8 @@ public class EnemyMovement : MonoBehaviour {
 
         waypointIndex++;
         target = Waypoints.points[waypointIndex];
+        */
+        target = ChoseDirection();
     }
 
     private void EndPath()
@@ -48,7 +51,7 @@ public class EnemyMovement : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private Vector3 ChoseDirection()
+    private Transform ChoseDirection()
     {
         GameObject Yggdrasil = FindObjectOfType<Yggdrasil>().gameObject;
         List<GameObject> poi = new List<GameObject>();
@@ -71,7 +74,7 @@ public class EnemyMovement : MonoBehaviour {
             }
         }
 
-        return poi[(int)Random.Range(0f,poi.Count-1)].transform.position;
+        return poi[(int)Random.Range(0f,poi.Count)].transform;
     }
 
     private bool isWithinRange(GameObject obj, GameObject Yggdrasil)
@@ -83,7 +86,7 @@ public class EnemyMovement : MonoBehaviour {
         }
         //projection (hauteur du triangle)
         else if(Vector3.Angle(Yggdrasil.transform.position - transform.position, obj.transform.position - transform.position) 
-            * Vector3.Magnitude(obj.transform.position - transform.position) > 20f)
+            * Vector3.Magnitude(obj.transform.position - transform.position) * Mathf.PI / 180f > 100f)
         {
             return false;
         }

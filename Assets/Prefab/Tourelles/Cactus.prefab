@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1087414864709651265}
   - component: {fileID: 1087414864708553089}
   - component: {fileID: 7283447455945743607}
+  - component: {fileID: 6307425837682432899}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -96,8 +97,23 @@ MonoBehaviour:
   startlife: 10
   damage: 1
   loadTime: 1
-  range: 0
+  range: 1
+  projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
+    type: 3}
   lifebar: {fileID: 7283447455370770481}
+--- !u!65 &6307425837682432899
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087414864706295617}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.8188133, y: 3.3579528, z: 6.1329894}
+  m_Center: {x: -0.07784045, y: -0.1731671, z: 1.8818455}
 --- !u!1 &1292263871282760211
 GameObject:
   m_ObjectHideFlags: 0
