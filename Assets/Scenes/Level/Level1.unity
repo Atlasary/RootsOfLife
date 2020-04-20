@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -961,19 +961,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tourelles:
-  - gameObject: {fileID: 8090434777570995775, guid: e8910d85921a39b4796ff72320bc6c0a,
+  - gameObject: {fileID: 7483507360426788565, guid: 929919b6561fb9949b3a08d8866fa9c8,
       type: 3}
     price: 25
-  - gameObject: {fileID: 7639027260465482680, guid: 7ccdb7e6f66c62b4ab4898d4d5692a5f,
+  - gameObject: {fileID: 1087414864706295617, guid: 0ab4e8e8f02c60049b491ac50e6b8d91,
       type: 3}
     price: 25
-  - gameObject: {fileID: 7451470849455368995, guid: ce6ef0d7e207cdb469e01976a489c80a,
+  - gameObject: {fileID: 121804784829501344, guid: 4c34bcdf5b693404f86c54ec26b9a0e0,
       type: 3}
     price: 25
-  - gameObject: {fileID: 5745756518086756755, guid: dda922f6049e2594d9b8f8e62ce210c7,
+  - gameObject: {fileID: 7954986575236445825, guid: 9f5818f80a5a1864fb03b7dd5442f6cb,
       type: 3}
     price: 25
-  - gameObject: {fileID: 5767900325044286752, guid: c1fd38491753d5d40a49faefa33d0520,
+  - gameObject: {fileID: 199977369758263918, guid: f96d4d3bb95b10846bc94984a374ca78,
       type: 3}
     price: 25
   terrainCollider: {fileID: 1519065981}
@@ -2556,7 +2556,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1516523926
