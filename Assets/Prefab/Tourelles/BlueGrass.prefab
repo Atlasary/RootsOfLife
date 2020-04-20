@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3100810353002866707}
   m_LocalRotation: {x: -0, y: -0, z: 0.017452449, w: 0.9998477}
-  m_LocalPosition: {x: 0, y: 0, z: -0.78440374}
+  m_LocalPosition: {x: 0, y: -0, z: -0.05}
   m_LocalScale: {x: 399.99997, y: 400.00018, z: 0.45871586}
   m_Children: []
   m_Father: {fileID: 7483507360426957557}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1148919791825939083}
   m_Layer: 0
   m_Name: BlueGrass
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +295,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7483507360426788565}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 62.215416, y: 47.457996, z: 3.6433403}
