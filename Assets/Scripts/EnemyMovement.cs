@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour {
@@ -44,6 +46,48 @@ public class EnemyMovement : MonoBehaviour {
         PlayerStats.lives--;
         WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
+    }
+
+    private Vector3 ChoseDirection()
+    {
+        GameObject Yggdrasil = FindObjectOfType<Yggdrasil>().gameObject;
+        List<GameObject> poi = new List<GameObject>();
+        poi.Add(Yggdrasil);
+
+        TurretHabits[] turretList = FindObjectsOfType<TurretHabits>();
+        for (int i = 0; i < turretList.Length; i++)
+        {
+            if (isWithinRange(turretList[i].gameObject, Yggdrasil))
+            {
+                poi.Add(turretList[i].gameObject);
+            }
+        }
+        Spot[] spotList = FindObjectsOfType<Spot>();
+        for (int i = 0; i < spotList.Length; i++)
+        {
+            if (isWithinRange(spotList[i].gameObject, Yggdrasil))
+            {
+                poi.Add(spotList[i].gameObject);
+            }
+        }
+
+        return poi[(int)Random.Range(0f,poi.Count-1)].transform.position;
+    }
+
+    private bool isWithinRange(GameObject obj, GameObject Yggdrasil)
+    {
+        //radius
+        if(Vector3.Magnitude(Yggdrasil.transform.position - transform.position) < Vector3.Magnitude(obj.transform.position - transform.position))
+        {
+            return false;
+        }
+        //projection (hauteur du triangle)
+        else if(Vector3.Angle(Yggdrasil.transform.position - transform.position, obj.transform.position - transform.position) 
+            * Vector3.Magnitude(obj.transform.position - transform.position) > 20f)
+        {
+            return false;
+        }
+        return true;
     }
 
 }
