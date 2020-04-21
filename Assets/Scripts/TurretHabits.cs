@@ -19,6 +19,8 @@ public class TurretHabits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject rangeObj = GetComponentInChildren<TurretDetector>().gameObject;
+        rangeObj.GetComponent<SpriteRenderer>().enabled = false;
         life = startlife;
         initScale = lifebar.transform.localScale.x;
         lifebar.gameObject.SetActive(false);
@@ -92,8 +94,18 @@ public class TurretHabits : MonoBehaviour
 
     private void InitiateRange()
     {
-        print(GetComponentInChildren<TurretDetector>().gameObject.name);
         GetComponentInChildren<TurretDetector>().gameObject.transform.localScale = new Vector3(range * 80f / this.transform.localScale.x, range * 80f / this.transform.localScale.y,1);
     }
 
+    private void OnMouseOver()
+    {
+        GameObject rangeObj = GetComponentInChildren<TurretDetector>().gameObject;
+        rangeObj.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    private void OnMouseExit()
+    {
+        GameObject rangeObj = GetComponentInChildren<TurretDetector>().gameObject;
+        rangeObj.GetComponent<SpriteRenderer>().enabled = false;
+    }
 }
