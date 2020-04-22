@@ -970,7 +970,7 @@ MonoBehaviour:
   - gameObject: {fileID: 121804784829501344, guid: 4c34bcdf5b693404f86c54ec26b9a0e0,
       type: 3}
     price: 25
-  - gameObject: {fileID: 7954986575236445825, guid: 9f5818f80a5a1864fb03b7dd5442f6cb,
+  - gameObject: {fileID: 8040763979134611150, guid: 9f5818f80a5a1864fb03b7dd5442f6cb,
       type: 3}
     price: 25
   - gameObject: {fileID: 199977369758263918, guid: f96d4d3bb95b10846bc94984a374ca78,
