@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     public float startHealth = 100f;
     private float health;
     public int worth = 50;
+    public float attack = 1f;
 
     public GameObject deathEffect;
 
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Turret")
         {
-            collision.gameObject.GetComponent<TurretHabits>().TakeDamage(0.01f);
+            collision.gameObject.GetComponent<TurretHabits>().TakeDamage(attack*Time.deltaTime);
         }
     }
 }

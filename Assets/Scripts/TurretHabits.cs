@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurretHabits : MonoBehaviour
 {
     private float life;
     private List<Enemy> enemyList;
     private bool isReady;
-    private float initScale;
 
     public float startlife;
     public float damage;
     public float loadTime;
     public float range;
     public GameObject projectile;
-    public GameObject lifebar;
+    public Image lifebar;
+    public GameObject lifebarBG;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,7 @@ public class TurretHabits : MonoBehaviour
         GameObject rangeObj = GetComponentInChildren<TurretDetector>().gameObject;
         rangeObj.GetComponent<SpriteRenderer>().enabled = false;
         life = startlife;
-        initScale = lifebar.transform.localScale.x;
-        lifebar.gameObject.SetActive(false);
+        lifebarBG.gameObject.SetActive(false);
         enemyList = new List<Enemy>();
         isReady = true;
         InitiateRange();
@@ -48,19 +48,27 @@ public class TurretHabits : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        print(life);
-        print(startlife);
         if(life == startlife)
         {
-            print("ok");
-            lifebar.gameObject.SetActive(true);
+            lifebarBG.gameObject.SetActive(true);
         }
         life -= damage;
-        lifebar.transform.localScale = new Vector3(initScale * life / startlife, lifebar.transform.localScale.y, lifebar.transform.localScale.z);
+        lifebar.fillAmount = life / startlife;
         if (life < 0)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void Heal(float amount)
+    {
+        life += amount;
+        if (life > startlife)
+        {
+            life = startlife;
+            lifebarBG.gameObject.SetActive(false);
+        }
+        lifebar.fillAmount = life / startlife;
     }
 
     public void DetectEnemy(Enemy enemy)
