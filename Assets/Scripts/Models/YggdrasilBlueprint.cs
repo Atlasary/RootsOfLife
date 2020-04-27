@@ -9,6 +9,9 @@ public class YggdrasilBlueprint : IExtendable {
     public bool isSelected;
     public float range;
 
+    public bool isUpgraded;
+    public int upgradePrice;
+
     public GameObject GetGameObject()
     {
         return gameObject;

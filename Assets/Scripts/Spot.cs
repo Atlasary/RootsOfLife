@@ -20,11 +20,6 @@ public class Spot : MonoBehaviour
         spot.gameObject = gameObject;
     }
 
-    internal Vector3 GetSpotPosition()
-    {
-        return spot.gameObject.transform.position;
-    }
-
     private void OnMouseDown()
     {
         buildManager.SelectSpot(this);

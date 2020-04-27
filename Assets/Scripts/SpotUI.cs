@@ -12,7 +12,7 @@ public class SpotUI : MonoBehaviour
     {
         target = spot;
 
-        transform.position = target.GetSpotPosition();
+        transform.position = target.spot.gameObject.transform.position;
 
         ui.SetActive(true);
     }

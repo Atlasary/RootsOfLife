@@ -12,7 +12,7 @@ public class YggdrasilUI : MonoBehaviour
     {
         target = yggdrasil;
 
-        transform.position = target.GetYggdrasilPosition();
+        transform.position = target.yggdrasil.gameObject.transform.position;
 
         ui.SetActive(true);
     }
@@ -20,5 +20,10 @@ public class YggdrasilUI : MonoBehaviour
     public void Hide()
     {
         ui.SetActive(false);
+    }
+
+    public void Upgrade()
+    {
+        target.UpgradeYggdrasil();
     }
 }

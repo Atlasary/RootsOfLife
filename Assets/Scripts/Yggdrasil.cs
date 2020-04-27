@@ -10,11 +10,6 @@ public class Yggdrasil : MonoBehaviour
 
     private SpriteRenderer rangeSpriteRenderer;
 
-    internal Vector3 GetYggdrasilPosition()
-    {
-        return yggdrasil.gameObject.transform.position;
-    }
-
     BuildManager buildManager;
 
     private void Start()
@@ -50,5 +45,22 @@ public class Yggdrasil : MonoBehaviour
         buildManager.SelectYggdrasil(this);
     }
 
+    public void UpgradeYggdrasil()
+    {
+        if (PlayerStats.money < yggdrasil.upgradePrice)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + yggdrasil.upgradePrice + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + yggdrasil.upgradePrice + "$");
+            PlayerStats.money -= yggdrasil.upgradePrice;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
 
+        yggdrasil.range += 20;
+        PlayerStats.lives += 50;
+        yggdrasil.isUpgraded = true;
+    }
 }

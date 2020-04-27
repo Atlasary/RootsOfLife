@@ -147,13 +147,13 @@ public class BuildManager : MonoBehaviour
         yggdrasilUI.SetTarget(yggdrasil);
     }
 
-    private void DeselectSpot()
+    public void DeselectSpot()
     {
         selectedSpot = null;
         spotUI.Hide();
     }
 
-    private void DeselectRoot()
+    public void DeselectRoot()
     {
         /*
         bool isChild = false;
@@ -178,11 +178,15 @@ public class BuildManager : MonoBehaviour
         rootUI.Hide();
     }
 
-    private void DeselectYggdrasil()
+    public void DeselectYggdrasil()
     {
         if(selectedYggdrasil != null)
             selectedYggdrasil.HideRange();
         selectedYggdrasil = null;
         yggdrasilUI.Hide();
     }
+
+
+
+    
 }

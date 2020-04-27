@@ -11,11 +11,6 @@ public class Root : MonoBehaviour
     private SpriteRenderer rangeSpriteRenderer;
     private GameObject[] spots;
 
-    internal Vector3 GetRootPosition()
-    {
-        return root.gameObject.transform.position;
-    }
-
     public GameObject[] GetChildren()
     {
         return spots;
@@ -75,6 +70,7 @@ public class Root : MonoBehaviour
 
     }
 
+
     private void createInstanceRBP()
     {
         root.range = 2 * transform.localScale.y;
@@ -111,5 +107,38 @@ public class Root : MonoBehaviour
     {
         DisplaySpots();
         buildManager.SelectRoot(this);
+    }
+
+    public void UpgradeRoot()
+    {
+        if (PlayerStats.money < root.upgradePrice)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + root.upgradePrice + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + root.upgradePrice + "$");
+            PlayerStats.money -= root.upgradePrice;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
+
+        root.range += 20;
+        root.health += 20;
+        root.currentHealth = root.health;
+        root.isUpgraded = true;
+        buildManager.DeselectRoot();
+    }
+
+    internal void RepairRoot()
+    {
+        // TODO : repair root
+        buildManager.rootUI.Hide();
+    }
+
+    internal void SellRoot()
+    {
+        // TODO : sell root
+        buildManager.rootUI.Hide();
     }
 }

@@ -12,6 +12,10 @@ public class RootBluePrint : IExtendable, IBuyable
     public int price;
 
     public int health;
+    public int currentHealth;
+
+    public bool isUpgraded;
+    public int upgradePrice;
 
     public GameObject GetGameObject()
     {
