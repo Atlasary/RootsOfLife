@@ -62,5 +62,6 @@ public class Yggdrasil : MonoBehaviour
         yggdrasil.range += 20;
         PlayerStats.lives += 50;
         yggdrasil.isUpgraded = true;
+        buildManager.DeselectYggdrasil();
     }
 }
