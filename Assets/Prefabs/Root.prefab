@@ -29,7 +29,11 @@ Transform:
   m_GameObject: {fileID: 606430705167450236}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_LocalScale: {x: 10, y: 25.41433, z: 10}
+=======
+  m_LocalScale: {x: 10, y: 9.892615, z: 10}
+>>>>>>> 2dafb1740faa25742d07759839748bc0ddd1e072
   m_Children:
   - {fileID: 3133310669415572082}
   m_Father: {fileID: 0}
@@ -110,8 +114,13 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     isSelected: 0
     range: 90
-    price: 0
+    price: 70
     health: 50
+    currentHealth: 43
+    isUpgraded: 0
+    upgradePrice: 250
+    repairPrice: 3
+  spotMaterial: {fileID: 2100000, guid: 7274422c5b0cf544aa6c2009a1c3d601, type: 2}
 --- !u!1 &1863041753950054191
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,14 +189,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 10c6c51270b942e4fb4a052d3508141e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

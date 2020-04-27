@@ -7,6 +7,8 @@ public class Ground : MonoBehaviour
     BuildManager buildManager;
     Vector3 origin;
 
+    public static bool extendable;
+
     public RootBluePrint rootPrefab;
     
 
@@ -17,21 +19,29 @@ public class Ground : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (buildManager.extendable == null)
-            return;
+        if (extendable)
+        {
+            if (buildManager.extendable == null)
+                return;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        // Casts the ray and get the first game object hit
-        Physics.Raycast(ray, out hit);
+            // Casts the ray and get the first game object hit
+            Physics.Raycast(ray, out hit);
 
-        //Vector3 origin = transform.position;
-        Vector3 destination = hit.point;
+            //Vector3 origin = transform.position;
+            Vector3 destination = hit.point;
 
-        buildManager.BuildRootTo(rootPrefab,destination);
+            buildManager.BuildRootTo(rootPrefab, destination);
 
-        buildManager.extendable = null;
+            buildManager.extendable = null;
+
+            extendable = false;
+
+            buildManager.DeselectAll();
+        }
+        
     }
 
 }

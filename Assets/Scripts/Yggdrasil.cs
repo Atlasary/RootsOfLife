@@ -10,12 +10,6 @@ public class Yggdrasil : MonoBehaviour
 
     private SpriteRenderer rangeSpriteRenderer;
 
-    private bool hoverEnabled = true;
-    private bool activate = false;
-
-    private RaycastHit hit;
-    private Ray ray;
-
     BuildManager buildManager;
 
     private void Start()
@@ -31,70 +25,48 @@ public class Yggdrasil : MonoBehaviour
 
         yggdrasil.gameObject = gameObject;
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         buildManager = BuildManager.instance;
     }
 
-    void Update()
-    {
-        
-        //while (activate)
-        //{
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (hit.collider == terrainCollider)
-        //        {
-        //            Debug.Log("I hit the floor !");
-        //        }
-        //    }
-        //    /*
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        activate = false;
-        //    }
-        //    */
-        //}
-    }
 
-    private void HideRange()
+    public void HideRange()
     {
         rangeSpriteRenderer.enabled = false;
     }
 
-    private void ShowRange()
+    public void ShowRange()
     {
         rangeSpriteRenderer.enabled = true;
     }
 
     private void OnMouseDown()
     {
-        ShowRange();
-
-        //buildManager.expandableGo = gameObject;
-
-        buildManager.extendable = yggdrasil;
-        //Debug.Log(yggdrasil.gameObject);
-        hoverEnabled = false;
-        activate = true;
+        buildManager.SelectYggdrasil(this);
     }
 
-    private void OnMouseExit()
+    public void UpgradeYggdrasil()
     {
-        if (hoverEnabled)
-            HideRange();
+        if (PlayerStats.money < yggdrasil.upgradePrice)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + yggdrasil.upgradePrice + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + yggdrasil.upgradePrice + "$");
+            PlayerStats.money -= yggdrasil.upgradePrice;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
+
+        yggdrasil.range += 20;
+        PlayerStats.lives += 50;
+        yggdrasil.isUpgraded = true;
+        buildManager.DeselectYggdrasil();
     }
 
-    private void OnMouseOver()
+    internal void ExtendYggdrasil()
     {
-        if (hoverEnabled)
-            ShowRange();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        //Gizmos.color = Color.red;
-        //Vector3 position = new Vector3(transform.position.x, transform.position.y, .5f);
-        //Gizmos.DrawWireSphere(position, yggdrasil.range);
+        Ground.extendable = true;
     }
 }
