@@ -220,10 +220,17 @@ MonoBehaviour:
   range: 1
   projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
     type: 3}
+<<<<<<< HEAD
   lifebar: {fileID: 914904064162772528}
   lifebarBG: {fileID: 946741321273438120}
 --- !u!1001 &3538126361266851926
 PrefabInstance:
+=======
+  lifebar: {fileID: 0}
+  lifebarBG: {fileID: 0}
+--- !u!65 &1148919791825939083
+BoxCollider:
+>>>>>>> 1840d46324291706137c65bab8e1d906dbd78e74
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:

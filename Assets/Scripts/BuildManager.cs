@@ -9,6 +9,15 @@ public class BuildManager : MonoBehaviour
 
     public IExtendable extendable;
 
+    private Root selectedRoot;
+    public RootUI rootUI;
+
+    private Yggdrasil selectedYggdrasil;
+    public YggdrasilUI yggdrasilUI;
+
+    private Spot selectedSpot;
+    public SpotUI spotUI;
+
     private void Awake()
     {
         if (instance != null)
@@ -75,11 +84,114 @@ public class BuildManager : MonoBehaviour
 
     }
 
+
     private bool isWithinRange(Vector3 origin, Vector3 destination)
     {
         float dist = Vector3.Distance(origin, destination);
         if (dist > extendable.getRange()) return false;
         return true;
+    }
+
+    public void SelectSpot(Spot spot)
+    {
+        if(selectedSpot == spot)
+        {
+            DeselectSpot();
+            return;
+        }
+
+        selectedSpot = spot;
+        extendable = selectedSpot.spot;
+
+        DeselectRoot();
+
+        DeselectYggdrasil();
+
+        spotUI.SetTarget(spot);
+    }
+
+    public void SelectRoot(Root root)
+    {
+        if (selectedRoot == root)
+        {
+            DeselectRoot();
+            return;
+        }
+
+        selectedRoot = root;
+        selectedRoot.ShowRange();
+        extendable = null;
+
+        DeselectSpot();
+
+        DeselectYggdrasil();
+
+        rootUI.SetTarget(root);
+    }
+
+    public void SelectYggdrasil(Yggdrasil yggdrasil)
+    {
+        if (selectedYggdrasil == yggdrasil)
+        {
+            DeselectYggdrasil();
+            return;
+        }
+
+        selectedYggdrasil = yggdrasil;
+        selectedYggdrasil.ShowRange();
+        extendable = selectedYggdrasil.yggdrasil;
+
+        DeselectRoot();
+
+        DeselectSpot();
+
+        yggdrasilUI.SetTarget(yggdrasil);
+    }
+
+    public void DeselectSpot()
+    {
+        selectedSpot = null;
+        spotUI.Hide();
+    }
+
+    public void DeselectRoot()
+    {
+        /*
+        bool isChild = false;
+        if (selectedRoot != null)
+        {
+            if(selectedSpot != null)
+            {
+                foreach (GameObject child in selectedRoot.GetChildren())
+                {
+                    if (child != null && child.name == selectedSpot.name) isChild = true;
+                }
+            }
+            if (!isChild) selectedRoot.HideRange();
+        }
+        */
+        if (selectedRoot != null)
+        {
+            selectedRoot.HideRange();
+        }
+
+        selectedRoot = null;
+        rootUI.Hide();
+    }
+
+    public void DeselectYggdrasil()
+    {
+        if(selectedYggdrasil != null)
+            selectedYggdrasil.HideRange();
+        selectedYggdrasil = null;
+        yggdrasilUI.Hide();
+    }
+
+    internal void DeselectAll()
+    {
+        DeselectSpot();
+        DeselectRoot();
+        DeselectYggdrasil();
     }
 
 }

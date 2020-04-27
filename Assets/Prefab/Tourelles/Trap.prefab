@@ -113,8 +113,26 @@ MonoBehaviour:
   range: 1
   projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
     type: 3}
+<<<<<<< HEAD
   lifebar: {fileID: 354912218327546479}
   lifebarBG: {fileID: 395475199179334647}
+=======
+  lifebar: {fileID: 0}
+  lifebarBG: {fileID: 0}
+--- !u!65 &6986538205402680216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121804784829501344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.06426, y: 3.962956, z: 1.1905882}
+  m_Center: {x: 0.83979994, y: -0.021886533, z: 0.3539501}
+>>>>>>> 1840d46324291706137c65bab8e1d906dbd78e74
 --- !u!1 &7022962267361899639
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,8 +100,13 @@ MonoBehaviour:
   range: 1
   projectile: {fileID: 488193270203881344, guid: 857bb24d2ba680645a5c8bcd83d9dda6,
     type: 3}
+<<<<<<< HEAD
   lifebar: {fileID: 4721133229974937320}
   lifebarBG: {fileID: 4618364628608697104}
+=======
+  lifebar: {fileID: 0}
+  lifebarBG: {fileID: 0}
+>>>>>>> 1840d46324291706137c65bab8e1d906dbd78e74
 --- !u!65 &6307425837682432899
 BoxCollider:
   m_ObjectHideFlags: 0

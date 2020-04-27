@@ -6,24 +6,34 @@ using UnityEngine;
 public class Root : MonoBehaviour
 {
     public RootBluePrint root;
+    public Material spotMaterial;
 
     private SpriteRenderer rangeSpriteRenderer;
     private GameObject[] spots;
 
-    private bool hoverEnabled = true;
+    private SpriteRenderer purifiedArea;
+
+    public GameObject[] GetChildren()
+    {
+        return spots;
+    }
 
     BuildManager buildManager;
-    RaycastHit hit;
-    Ray ray;
+
 
     private void Start()
     {
         rangeSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // prevent the parrent from scaling the children
-        //transform.GetChild(0).parent = null;
+        purifiedArea = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        //transform.GetChild(1).parent = null;
+        //purifiedArea.transform.localScale += new Vector3(5f, 5f, .2f);
+
+
+        purifiedArea.transform.localScale = new Vector3(transform.localScale.y / 3.5f, 3, -0.05f);
+        purifiedArea.enabled = true;
 
         createInstanceRBP();
 
@@ -37,10 +47,11 @@ public class Root : MonoBehaviour
         if(ratio <= 1)
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            go.GetComponent<Renderer>().material = spotMaterial;
             go.transform.localScale = new Vector3(1.1f, 1 / ratio, 1.1f);
             go.transform.position = new Vector3(0, 2f, 0);
             go.transform.localPosition = new Vector3(0, (1 / ratio) * 2 - 1, 0);
-            go.name = "spot " + 1;
+            go.name = "spot " + System.Guid.NewGuid();
             go.AddComponent<Spot>();
             go.transform.SetParent(transform, false);
             //go.SetActive(false);
@@ -51,10 +62,11 @@ public class Root : MonoBehaviour
             for (float i = 1; i < ratio; i++)
             {
                 GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                go.GetComponent<Renderer>().material = spotMaterial;
                 go.transform.localScale = new Vector3(1.1f, 1 / ratio, 1.1f);
                 go.transform.position = new Vector3(0, 2f, 0);
                 go.transform.localPosition = new Vector3(0, (i / ratio) * 2 - 1, 0);
-                go.name = "spot " + i;
+                go.name = "spot " + System.Guid.NewGuid();
                 go.AddComponent<Spot>();
                 go.transform.SetParent(transform, false);
                 //go.SetActive(false);
@@ -65,6 +77,7 @@ public class Root : MonoBehaviour
         buildManager = BuildManager.instance;
 
     }
+
 
     private void createInstanceRBP()
     {
@@ -87,56 +100,74 @@ public class Root : MonoBehaviour
         //foreach (GameObject spot in spots) spot.SetActive(true);
     }
 
-    private void HideRange()
+    public void HideRange()
     {
         rangeSpriteRenderer.enabled = false;
     }
 
-    private void ShowRange()
+    public void ShowRange()
     {
         rangeSpriteRenderer.enabled = true;
+        Debug.Log("Showrange");
     }
 
     private void OnMouseDown()
     {
-        ShowRange();
         DisplaySpots();
-        hoverEnabled = false;
-        // on construit a partir des spots de la racine, pas du centre de la racine
-        //buildManager.expandableGo = gameObject;
-        //buildManager.extendable = root;
+        buildManager.SelectRoot(this);
     }
 
-    private void OnMouseEnter()
+    public void UpgradeRoot()
     {
-        if (hoverEnabled)
+        if (PlayerStats.money < root.upgradePrice)
         {
-            ShowRange();
-            
-        } else
-        {
-            DisplaySpots();
-        }
-            
-    }
-
-    private void OnMouseExit()
-    {
-        if (hoverEnabled)
-        {
-            HideRange();
-            //HideSpots();
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + root.upgradePrice + "$");
+            return;
         }
         else
         {
-            HideSpots();
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the root upgrade costs " + root.upgradePrice + "$");
+            PlayerStats.money -= root.upgradePrice;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
         }
 
+        root.range += 20;
+        root.health += 20;
+        root.currentHealth = root.health;
+        root.isUpgraded = true;
+        buildManager.DeselectRoot();
     }
 
-    private void OnDrawGizmosSelected()
+    internal void RepairRoot()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, root.range);
+        // TODO : repair root
+        int repairPrice = (root.health - root.currentHealth) * root.repairPrice;
+
+        if (PlayerStats.money < repairPrice)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the repair costs " + repairPrice + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the repair costs " + repairPrice + "$");
+            PlayerStats.money -= repairPrice;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
+
+        root.currentHealth = root.health;
+
+        buildManager.DeselectRoot();
+    }
+
+    internal void SellRoot()
+    {
+        int cost = root.isUpgraded ? root.price + root.upgradePrice : root.price;
+
+        // TODO : gérer le bugg des sous qui sont pas les bon
+        PlayerStats.money += cost;
+
+        buildManager.DeselectRoot();
+        Destroy(gameObject);
     }
 }
