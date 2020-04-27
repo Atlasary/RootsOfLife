@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TurretDetector : MonoBehaviour
 {
+    private void Start()
+    {
+        print("hello detect");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")

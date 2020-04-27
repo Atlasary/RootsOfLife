@@ -6,7 +6,7 @@ using UnityEngine;
 public class TurretBlueprint : IBuyable
 {
     public GameObject gameObject;
-
+    public GameObject preview;
     public int price;
 
     public int getPrice()

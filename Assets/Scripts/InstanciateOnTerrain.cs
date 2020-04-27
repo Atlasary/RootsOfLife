@@ -32,13 +32,16 @@ public class InstanciateOnTerrain : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0))
             {
+                Instantiate(tourelles[currentIndex].gameObject, current.transform.position, current.transform.rotation);
                 activate = false;
+                Destroy(current);
             }
         }
     }
 
     public void TurretSwitch(int index)
     {
+        currentIndex = index;
         activate = true;
         TurretBlueprint tbp = tourelles[index];
         if (PlayerStats.money < tbp.price)
@@ -53,7 +56,7 @@ public class InstanciateOnTerrain : MonoBehaviour
             Debug.Log("Now you have " + PlayerStats.money + "$");
         }
 
-        current = Instantiate(tbp.gameObject, Vector3.zero, Quaternion.Euler(Vector3.left * 90));
+        current = Instantiate(tbp.preview, Vector3.zero, Quaternion.Euler(Vector3.left * 90));
 
         Debug.Log("is null ? " + current.name);
     }
