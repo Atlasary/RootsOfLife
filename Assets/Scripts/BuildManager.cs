@@ -100,6 +100,7 @@ public class BuildManager : MonoBehaviour
         }
 
         selectedSpot = spot;
+        extendable = selectedSpot.spot;
 
         DeselectRoot();
 
@@ -117,6 +118,8 @@ public class BuildManager : MonoBehaviour
         }
 
         selectedRoot = root;
+        selectedRoot.ShowRange();
+        extendable = null;
 
         DeselectSpot();
 
@@ -134,6 +137,8 @@ public class BuildManager : MonoBehaviour
         }
 
         selectedYggdrasil = yggdrasil;
+        selectedYggdrasil.ShowRange();
+        extendable = selectedYggdrasil.yggdrasil;
 
         DeselectRoot();
 

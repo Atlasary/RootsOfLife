@@ -10,17 +10,10 @@ public class Yggdrasil : MonoBehaviour
 
     private SpriteRenderer rangeSpriteRenderer;
 
-    private bool hoverEnabled = true;
-
     internal Vector3 GetYggdrasilPosition()
     {
         return yggdrasil.gameObject.transform.position;
     }
-
-    private bool activate = false;
-
-    private RaycastHit hit;
-    private Ray ray;
 
     BuildManager buildManager;
 
@@ -37,7 +30,6 @@ public class Yggdrasil : MonoBehaviour
 
         yggdrasil.gameObject = gameObject;
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         buildManager = BuildManager.instance;
     }
@@ -55,33 +47,8 @@ public class Yggdrasil : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ShowRange();
-
-        //buildManager.expandableGo = gameObject;
         buildManager.SelectYggdrasil(this);
-
-        buildManager.extendable = yggdrasil;
-        //Debug.Log(yggdrasil.gameObject);
-        hoverEnabled = false;
-        activate = true;
     }
 
-    private void OnMouseExit()
-    {
-        if (hoverEnabled)
-            HideRange();
-    }
 
-    private void OnMouseOver()
-    {
-        if (hoverEnabled)
-            ShowRange();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        //Gizmos.color = Color.red;
-        //Vector3 position = new Vector3(transform.position.x, transform.position.y, .5f);
-        //Gizmos.DrawWireSphere(position, yggdrasil.range);
-    }
 }

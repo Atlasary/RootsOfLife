@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Spot : MonoBehaviour
 {
-    private SpotBluerint spot;
+    public SpotBluerint spot;
     public Root parent;
 
     BuildManager buildManager;
@@ -27,7 +27,6 @@ public class Spot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        buildManager.extendable = spot;
         buildManager.SelectSpot(this);
     }
 

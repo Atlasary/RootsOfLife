@@ -21,17 +21,13 @@ public class Root : MonoBehaviour
         return spots;
     }
 
-    private bool hoverEnabled = true;
-
     BuildManager buildManager;
-    RaycastHit hit;
-    Ray ray;
+
 
     private void Start()
     {
         rangeSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // prevent the parrent from scaling the children
         //transform.GetChild(0).parent = null;
@@ -113,45 +109,7 @@ public class Root : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ShowRange();
         DisplaySpots();
-        hoverEnabled = false;
         buildManager.SelectRoot(this);
-        // on construit a partir des spots de la racine, pas du centre de la racine
-        //buildManager.expandableGo = gameObject;
-        //buildManager.extendable = root;
-    }
-
-    private void OnMouseEnter()
-    {
-        //if (hoverEnabled)
-        //{
-        //    ShowRange();
-            
-        //} else
-        //{
-        //    DisplaySpots();
-        //}
-            
-    }
-
-    private void OnMouseExit()
-    {
-        //if (hoverEnabled)
-        //{
-        //    HideRange();
-        //    //HideSpots();
-        //}
-        //else
-        //{
-        //    HideSpots();
-        //}
-
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, root.range);
     }
 }
