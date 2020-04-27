@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class RootUI : MonoBehaviour
     public Text sellCost;
 
     public Text repairCost;
+    public Button repairButton;
 
     public void SetTarget(Root root)
     {
@@ -25,9 +27,12 @@ public class RootUI : MonoBehaviour
         transform.position = this.root.gameObject.transform.position;
 
         updateUpgrade();
+        updateRepair();
+        updateSell();
 
         ui.SetActive(true);
     }
+
 
     public void Hide()
     {
@@ -36,7 +41,7 @@ public class RootUI : MonoBehaviour
 
     private void updateUpgrade()
     {
-        if (!this.root.isUpgraded)
+        if (!root.isUpgraded)
         {
             upgradeCost.text = "$ " + target.root.upgradePrice;
             upgradeButton.interactable = true;
@@ -53,9 +58,29 @@ public class RootUI : MonoBehaviour
         target.UpgradeRoot();
     }
 
+    private void updateSell()
+    {
+        int cost = root.isUpgraded ? root.price + root.upgradePrice : root.price;
+        sellCost.text = "$ " + (.7 * cost);
+    }
+
     public void Sell()
     {
         target.SellRoot();
+    }
+
+    private void updateRepair()
+    {
+        Debug.Log("repair");
+        if(root.currentHealth < root.health)
+        {
+            repairCost.text = "$ " + (root.health - root.currentHealth) * root.repairPrice;
+            repairButton.interactable = true;
+        } else
+        {
+            repairCost.text = "$ 0";
+            repairButton.interactable = false;
+        }
     }
 
     public void Repair()

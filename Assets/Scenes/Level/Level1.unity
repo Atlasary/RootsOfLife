@@ -1349,7 +1349,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 552060698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 878835668}
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &552060698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2008,7 +2019,7 @@ PrefabInstance:
     - target: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1863041753950054191, guid: 1fd892226027a98479162eb67dc2f7b2,
         type: 3}
@@ -2453,6 +2464,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 789427927}
   sellCost: {fileID: 1865684387}
   repairCost: {fileID: 1909103389}
+  repairButton: {fileID: 1713050422}
 --- !u!4 &878835669
 Transform:
   m_ObjectHideFlags: 0
@@ -4321,8 +4333,10 @@ MonoBehaviour:
     range: 90
     price: 70
     health: 50
+    currentHealth: 0
     isUpgraded: 0
     upgradePrice: 0
+    repairPrice: 0
 --- !u!1 &1542292699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,7 +4670,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1713050423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 878835668}
+        m_MethodName: Repair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1713050423
 MonoBehaviour:
   m_ObjectHideFlags: 0

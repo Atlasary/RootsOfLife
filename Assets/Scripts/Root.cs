@@ -133,12 +133,33 @@ public class Root : MonoBehaviour
     internal void RepairRoot()
     {
         // TODO : repair root
-        buildManager.rootUI.Hide();
+        int repairPrice = (root.health - root.currentHealth) * root.repairPrice;
+
+        if (PlayerStats.money < repairPrice)
+        {
+            Debug.Log("Not enough money ! You have " + PlayerStats.money + "$ and the repair costs " + repairPrice + "$");
+            return;
+        }
+        else
+        {
+            Debug.Log("You have enough money ! You have " + PlayerStats.money + "$ and the repair costs " + repairPrice + "$");
+            PlayerStats.money -= repairPrice;
+            Debug.Log("Now you have " + PlayerStats.money + "$");
+        }
+
+        root.currentHealth = root.health;
+
+        buildManager.DeselectRoot();
     }
 
     internal void SellRoot()
     {
-        // TODO : sell root
-        buildManager.rootUI.Hide();
+        int cost = root.isUpgraded ? root.price + root.upgradePrice : root.price;
+
+        // TODO : gérer le bugg des sous qui sont pas les bon
+        PlayerStats.money += cost;
+
+        buildManager.DeselectRoot();
+        Destroy(gameObject);
     }
 }

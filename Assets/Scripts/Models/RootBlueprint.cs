@@ -17,6 +17,8 @@ public class RootBluePrint : IExtendable, IBuyable
     public bool isUpgraded;
     public int upgradePrice;
 
+    public int repairPrice;
+
     public GameObject GetGameObject()
     {
         return gameObject;
