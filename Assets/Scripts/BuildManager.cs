@@ -84,6 +84,7 @@ public class BuildManager : MonoBehaviour
 
     }
 
+
     private bool isWithinRange(Vector3 origin, Vector3 destination)
     {
         float dist = Vector3.Distance(origin, destination);
@@ -186,7 +187,11 @@ public class BuildManager : MonoBehaviour
         yggdrasilUI.Hide();
     }
 
+    internal void DeselectAll()
+    {
+        DeselectSpot();
+        DeselectRoot();
+        DeselectYggdrasil();
+    }
 
-
-    
 }

@@ -25,4 +25,8 @@ public class Spot : MonoBehaviour
         buildManager.SelectSpot(this);
     }
 
+    internal void Extend()
+    {
+        Ground.extendable = true;
+    }
 }

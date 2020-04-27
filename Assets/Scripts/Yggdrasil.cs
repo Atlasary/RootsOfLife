@@ -64,4 +64,9 @@ public class Yggdrasil : MonoBehaviour
         yggdrasil.isUpgraded = true;
         buildManager.DeselectYggdrasil();
     }
+
+    internal void ExtendYggdrasil()
+    {
+        Ground.extendable = true;
+    }
 }

@@ -13,6 +13,10 @@ public class YggdrasilUI : MonoBehaviour
     public Text upgradeCost;
     public Button upgradeButton;
 
+    public Text extendCost;
+
+    public RootBluePrint rootPrefab;
+
     public void SetTarget(Yggdrasil yggdrasil)
     {
         target = yggdrasil;
@@ -21,6 +25,7 @@ public class YggdrasilUI : MonoBehaviour
         transform.position = target.yggdrasil.gameObject.transform.position;
 
         updateUpgrade();
+        updateExtend();
 
         ui.SetActive(true);
     }
@@ -48,5 +53,15 @@ public class YggdrasilUI : MonoBehaviour
     public void Upgrade()
     {
         target.UpgradeYggdrasil();
+    }
+
+    private void updateExtend()
+    {
+        extendCost.text = rootPrefab.price.ToString();
+    }
+
+    public void Extend()
+    {
+        target.ExtendYggdrasil();
     }
 }
