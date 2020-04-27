@@ -8,13 +8,21 @@ public class Yggdrasil : MonoBehaviour
     public YggdrasilBlueprint yggdrasil;
     public Collider terrainCollider;
 
+    private SpriteRenderer purifiedArea;
+
     private SpriteRenderer rangeSpriteRenderer;
 
     BuildManager buildManager;
 
     private void Start()
     {
-        rangeSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        rangeSpriteRenderer = transform.GetChild(1).GetComponent<SpriteRenderer>();
+
+        purifiedArea = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        transform.GetChild(1).parent = null;
+
+        purifiedArea.transform.localScale = new Vector3(yggdrasil.range * .2f, yggdrasil.range * .2f, .99f);
+
 
         // prevent the parent from scaling the children
         transform.GetChild(0).parent = null;

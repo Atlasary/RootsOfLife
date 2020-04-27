@@ -11,6 +11,8 @@ public class Root : MonoBehaviour
     private SpriteRenderer rangeSpriteRenderer;
     private GameObject[] spots;
 
+    private SpriteRenderer purifiedArea;
+
     public GameObject[] GetChildren()
     {
         return spots;
@@ -25,7 +27,13 @@ public class Root : MonoBehaviour
 
 
         // prevent the parrent from scaling the children
-        //transform.GetChild(0).parent = null;
+        purifiedArea = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        //transform.GetChild(1).parent = null;
+        //purifiedArea.transform.localScale += new Vector3(5f, 5f, .2f);
+
+
+        purifiedArea.transform.localScale = new Vector3(transform.localScale.y / 3.5f, 3, -0.05f);
+        purifiedArea.enabled = true;
 
         createInstanceRBP();
 

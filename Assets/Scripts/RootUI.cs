@@ -24,7 +24,7 @@ public class RootUI : MonoBehaviour
         target = root;
         this.root = target.root;
 
-        transform.position = this.root.gameObject.transform.position;
+        transform.position = this.root.gameObject.transform.position + new Vector3(0, 20f, 0);
 
         updateUpgrade();
         updateRepair();

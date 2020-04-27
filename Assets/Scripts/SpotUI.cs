@@ -17,7 +17,7 @@ public class SpotUI : MonoBehaviour
     {
         target = spot;
 
-        transform.position = target.spot.gameObject.transform.position;
+        transform.position = target.spot.gameObject.transform.position + new Vector3(0, 20f, 0);
 
         updateExtend();
 
