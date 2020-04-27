@@ -11,6 +11,12 @@ public class Yggdrasil : MonoBehaviour
     private SpriteRenderer rangeSpriteRenderer;
 
     private bool hoverEnabled = true;
+
+    internal Vector3 GetYggdrasilPosition()
+    {
+        return yggdrasil.gameObject.transform.position;
+    }
+
     private bool activate = false;
 
     private RaycastHit hit;
@@ -36,33 +42,13 @@ public class Yggdrasil : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    void Update()
-    {
-        
-        //while (activate)
-        //{
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (hit.collider == terrainCollider)
-        //        {
-        //            Debug.Log("I hit the floor !");
-        //        }
-        //    }
-        //    /*
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        activate = false;
-        //    }
-        //    */
-        //}
-    }
 
-    private void HideRange()
+    public void HideRange()
     {
         rangeSpriteRenderer.enabled = false;
     }
 
-    private void ShowRange()
+    public void ShowRange()
     {
         rangeSpriteRenderer.enabled = true;
     }
@@ -72,6 +58,7 @@ public class Yggdrasil : MonoBehaviour
         ShowRange();
 
         //buildManager.expandableGo = gameObject;
+        buildManager.SelectYggdrasil(this);
 
         buildManager.extendable = yggdrasil;
         //Debug.Log(yggdrasil.gameObject);

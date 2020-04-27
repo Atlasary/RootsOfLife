@@ -6,9 +6,20 @@ using UnityEngine;
 public class Root : MonoBehaviour
 {
     public RootBluePrint root;
+    public Material spotMaterial;
 
     private SpriteRenderer rangeSpriteRenderer;
     private GameObject[] spots;
+
+    internal Vector3 GetRootPosition()
+    {
+        return root.gameObject.transform.position;
+    }
+
+    public GameObject[] GetChildren()
+    {
+        return spots;
+    }
 
     private bool hoverEnabled = true;
 
@@ -37,10 +48,11 @@ public class Root : MonoBehaviour
         if(ratio <= 1)
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            go.GetComponent<Renderer>().material = spotMaterial;
             go.transform.localScale = new Vector3(1.1f, 1 / ratio, 1.1f);
             go.transform.position = new Vector3(0, 2f, 0);
             go.transform.localPosition = new Vector3(0, (1 / ratio) * 2 - 1, 0);
-            go.name = "spot " + 1;
+            go.name = "spot " + System.Guid.NewGuid();
             go.AddComponent<Spot>();
             go.transform.SetParent(transform, false);
             //go.SetActive(false);
@@ -51,10 +63,11 @@ public class Root : MonoBehaviour
             for (float i = 1; i < ratio; i++)
             {
                 GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                go.GetComponent<Renderer>().material = spotMaterial;
                 go.transform.localScale = new Vector3(1.1f, 1 / ratio, 1.1f);
                 go.transform.position = new Vector3(0, 2f, 0);
                 go.transform.localPosition = new Vector3(0, (i / ratio) * 2 - 1, 0);
-                go.name = "spot " + i;
+                go.name = "spot " + System.Guid.NewGuid();
                 go.AddComponent<Spot>();
                 go.transform.SetParent(transform, false);
                 //go.SetActive(false);
@@ -87,14 +100,15 @@ public class Root : MonoBehaviour
         //foreach (GameObject spot in spots) spot.SetActive(true);
     }
 
-    private void HideRange()
+    public void HideRange()
     {
         rangeSpriteRenderer.enabled = false;
     }
 
-    private void ShowRange()
+    public void ShowRange()
     {
         rangeSpriteRenderer.enabled = true;
+        Debug.Log("Showrange");
     }
 
     private void OnMouseDown()
@@ -102,6 +116,7 @@ public class Root : MonoBehaviour
         ShowRange();
         DisplaySpots();
         hoverEnabled = false;
+        buildManager.SelectRoot(this);
         // on construit a partir des spots de la racine, pas du centre de la racine
         //buildManager.expandableGo = gameObject;
         //buildManager.extendable = root;
@@ -109,28 +124,28 @@ public class Root : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (hoverEnabled)
-        {
-            ShowRange();
+        //if (hoverEnabled)
+        //{
+        //    ShowRange();
             
-        } else
-        {
-            DisplaySpots();
-        }
+        //} else
+        //{
+        //    DisplaySpots();
+        //}
             
     }
 
     private void OnMouseExit()
     {
-        if (hoverEnabled)
-        {
-            HideRange();
-            //HideSpots();
-        }
-        else
-        {
-            HideSpots();
-        }
+        //if (hoverEnabled)
+        //{
+        //    HideRange();
+        //    //HideSpots();
+        //}
+        //else
+        //{
+        //    HideSpots();
+        //}
 
     }
 
