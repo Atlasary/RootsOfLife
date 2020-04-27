@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -973,7 +973,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 1182236499}
   extendCost: {fileID: 131000236}
   rootPrefab:
-    gameObject: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2,
+    gameObject: {fileID: 6082273910111389319, guid: 1fd892226027a98479162eb67dc2f7b2,
       type: 3}
     isSelected: 0
     range: 90
@@ -1432,7 +1432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!114 &516499313
 MonoBehaviour:
@@ -1612,7 +1612,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &590275953
 MonoBehaviour:
@@ -2432,36 +2432,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789427925}
   m_CullTransparentMesh: 0
---- !u!1 &800325028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 783901111}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 800325029}
-  m_Layer: 0
-  m_Name: Root (Missing Prefab)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &800325029
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 783901111}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800325028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808497710
 GameObject:
   m_ObjectHideFlags: 0
@@ -3373,7 +3343,7 @@ MonoBehaviour:
   ui: {fileID: 1455233697}
   extendCost: {fileID: 725124207}
   rootPrefab:
-    gameObject: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2,
+    gameObject: {fileID: 6082273910111389319, guid: 1fd892226027a98479162eb67dc2f7b2,
       type: 3}
     isSelected: 0
     range: 90
@@ -4526,7 +4496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootPrefab:
-    gameObject: {fileID: 606430705167450236, guid: 1fd892226027a98479162eb67dc2f7b2,
+    gameObject: {fileID: 6082273910111389319, guid: 1fd892226027a98479162eb67dc2f7b2,
       type: 3}
     isSelected: 0
     range: 90
@@ -5153,7 +5123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4819751714180284, guid: c8457b3e64a21da4186ce3171ada032f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4819751714180284, guid: c8457b3e64a21da4186ce3171ada032f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5969,7 +5939,7 @@ PrefabInstance:
     - target: {fileID: 8845573409325575112, guid: e6d002471ec5ccb468abfd49797ab0a7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8845573409325575112, guid: e6d002471ec5ccb468abfd49797ab0a7,
         type: 3}
